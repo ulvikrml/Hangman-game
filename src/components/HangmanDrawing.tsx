@@ -1,37 +1,36 @@
 const head = (
-  <div className="h-[60px] w-[60px] border-[8px] rounded-full border-black absolute top-[48px] right-[-25px]"></div>
+  <div key="head" className="h-[50px] w-[50px] border-[8px] rounded-full border-black absolute top-[48px] right-[-20px]"></div>
 )
 const body = (
-  <div className="h-[100px] w-[10px] bg-black absolute top-[105px] right-0"></div>
+  <div key="body" className="h-[80px] w-[10px] bg-black absolute top-[90px] right-0"></div>
 )
 const rightArm = (
-  <div className="h-[10px] w-[80px] bg-black absolute top-[150px] right-[-80px] rotate-[-30deg] origin-bottom-left"></div>
+  <div key="rightArm" className="h-[10px] w-[60px] bg-black absolute top-[120px] right-[-60px] rotate-[-30deg] origin-bottom-left"></div>
 )
 const leftArm = (
-  <div className="h-[10px] w-[80px] bg-black absolute top-[150px] right-[10px] rotate-[30deg] origin-bottom-right"></div>
+  <div key="leftArm" className="h-[10px] w-[60px] bg-black absolute top-[120px] right-[10px] rotate-[30deg] origin-bottom-right"></div>
 )
 const rightLeg = (
-  <div className="h-[10px] w-[80px] bg-black absolute top-[190px] right-[-70px] rotate-[60deg] origin-bottom-left"></div>
+  <div key="rightLeg" className="h-[10px] w-[60px] bg-black absolute top-[160px] right-[-50px] rotate-[60deg] origin-bottom-left"></div>
 )
 const leftLeg = (
-  <div className="h-[10px] w-[80px] bg-black absolute top-[190px] right-[0px] rotate-[-60deg] origin-bottom-right"></div>
+  <div key="leftLeg" className="h-[10px] w-[60px] bg-black absolute top-[160px] right-[0px] rotate-[-60deg] origin-bottom-right"></div>
 )
 
 const body_parts = [head, body, leftArm, rightArm, rightLeg, leftLeg]
 
-const HangmanDrawing = () => {
+type HangmanDrawingProps = {
+  numberOfGuesses : number
+}
+
+const HangmanDrawing = ({numberOfGuesses} : HangmanDrawingProps) => {
   return (
     <div className="relative">
-      {head}
-      {body}
-      {rightArm}
-      {leftArm}
-      {rightLeg}
-      {leftLeg}
+      {body_parts.slice(0,numberOfGuesses)}
       <div className="h-[50px] w-2 bg-black top-0 right-0 absolute"></div>
-      <div className="h-2 w-[200px] bg-black ml-[120px]"></div>
-      <div className="h-[350px] w-2 bg-black ml-[120px]"></div>
-      <div className="h-2 w-64 bg-black "></div>
+      <div className="h-2 w-[130px] bg-black ml-[80px]"></div>
+      <div className="h-[250px] w-2 bg-black ml-[80px]"></div>
+      <div className="h-2 w-[160px] bg-black "></div>
     </div>
   )
 }
